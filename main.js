@@ -2,7 +2,7 @@ const apiKey = "sandbox_1kJc12gVbY2ZL7H72sdyh9gQbWSgIi7CQ";
 var bans = []
 
 $(document).ready(function() {
-    const socket = new WebSocket('ws://https://backmono-g4qpz4v8.b4a.run'); 
+    const socket = new WebSocket('ws://backmono-g4qpz4v8.b4a.run'); 
     socket.addEventListener('message', (event) => {
         const eventData = JSON.parse(event.data)
         alert("El estado de tu transferencia ahora es: " + eventData.status + "\nCon motivo: " + eventData.reason)
