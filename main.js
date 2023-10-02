@@ -2,13 +2,13 @@ const apiKey = "sandbox_1kJc12gVbY2ZL7H72sdyh9gQbWSgIi7CQ";
 var bans = []
 
 $(document).ready(function() {
-    const socket = new WebSocket('ws://localhost:3000'); 
+    const socket = new WebSocket('ws://https://backmono-g4qpz4v8.b4a.run'); 
     socket.addEventListener('message', (event) => {
         const eventData = JSON.parse(event.data)
         alert("El estado de tu transferencia ahora es: " + eventData.status + "\nCon motivo: " + eventData.reason)
     });
     $.ajax({
-        url: 'http://localhost:3000/api/v1/mono/getBanks',  
+        url: 'https://backmono-g4qpz4v8.b4a.run/api/v1/mono/getBanks',  
         type: 'GET',  
         success: function (data, textStatus, jqXHR) {
             if(!!data && !!data.banks){
@@ -95,7 +95,7 @@ function submitTransfer (event){
     }
     console.log(JSON.stringify(payload));
     $.ajax({
-        url: 'http://localhost:3000/api/v1/mono/transfer',  
+        url: 'https://backmono-g4qpz4v8.b4a.run/api/v1/mono/transfer',  
         type: 'POST',  
         contentType: 'application/json',
         data: JSON.stringify(payload),
